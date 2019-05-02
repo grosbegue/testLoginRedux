@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import Login from "./components/Login";
+
+//
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <section className="container  ">
+      <div className="row-100 justify-content-center d-flex">
+        <div
+          className="col-md-6 col-sm-8 col-xl-3 col-lg-4  d-flex align-items-center "
+          style={{ height: "100vh" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Login />
+        </div>
+      </div>
+    </section>
   );
 }
 
