@@ -9,7 +9,7 @@ class User extends Component {
     return (
       <div className="text-center w-100">
         {store.getState().userName && (
-          <h1>hello {store.getState().userName}</h1>
+          <h1>Hello {store.getState().userName} !</h1>
         )}
       </div>
     );
