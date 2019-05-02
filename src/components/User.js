@@ -5,7 +5,6 @@ class User extends Component {
   state = {};
 
   render() {
-    console.log("store", store.getState().userName);
     return (
       <div className="text-center w-100">
         {store.getState().userName && (
