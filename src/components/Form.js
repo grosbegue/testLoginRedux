@@ -11,7 +11,7 @@ class Form extends Component {
       passwordConfirm: "",
       passwordValid: false,
       passwordSame: false,
-      passwordValue: ["Please choose a password", "danger"]
+      passwordValue: []
     };
   }
   handleChange = event => {
@@ -21,7 +21,7 @@ class Form extends Component {
     });
   };
 
-  dispatchFormChange() {
+  dispatchUser() {
     const name = this.state.userName;
     this.setState({ userName: "" });
     store.dispatch(setUser(name));
@@ -29,7 +29,7 @@ class Form extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    this.dispatchFormChange();
+    this.dispatchUser();
   }
 
   passwordCheck() {
@@ -56,7 +56,6 @@ class Form extends Component {
         passwordValue: ["Password strength : strong", "success"]
       });
     }
-    console.log(passwordCount);
   }
 
   render() {
@@ -69,11 +68,14 @@ class Form extends Component {
     return (
       <div>
         <ul className="list-group list-group-flush">
-          <li
-            className={"list-group-item text-center text-" + passwordValue[1]}
-          >
-            {passwordValue[0]}
-          </li>
+          {this.state.password && (
+            <li
+              className={"list-group-item text-center text-" + passwordValue[1]}
+            >
+              {passwordValue[0]}
+            </li>
+          )}
+
           {!this.state.passwordSame && this.state.password && (
             <li className="list-group-item text-center text-warning">
               Password re-typed must match password
